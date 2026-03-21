@@ -15,7 +15,7 @@ int main() {
         
             ClearBackground(RAYWHITE);
 
-            DrawText("First Window!!!!!!", 20, 20, 16, BLACK);
+            DrawText("First Window!!!!!!", 20, (screenHeight / 2) - 32, 64, BLACK);
         
         EndDrawing();
     }

@@ -15,8 +15,9 @@ int main() {
         
             ClearBackground(RAYWHITE);
 
-            DrawText("First Window!!!!!!", 20, (screenHeight / 2) - 32, 64, BLACK);
-        
+            if (IsKeyDown(KEY_UP))
+                DrawText("First Window!!!!!!", 20, (screenHeight / 2) - 32, 64, BLACK);
+
         EndDrawing();
     }
 

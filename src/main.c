@@ -29,14 +29,13 @@ int main() {
 
     while (!WindowShouldClose()) {
         switch (currentGameState) {
-            case GAMEPLAY:
-                Player_gameplayState(&player);
+            case GAMEPLAY: Player_gameplayState(&player);
         }
 
         BeginDrawing();
             ClearBackground(RAYWHITE);
 
-            Player_draw(&player);
+            if (currentGameState == GAMEPLAY) Player_draw(&player);
         EndDrawing();
     }
 

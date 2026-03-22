@@ -3,28 +3,35 @@
 
 #include "../include/raylib.h"
 
+// Flappy Bird where the pipes come to you and you can move around and avoid them?
+// countdown to fall
+
 int main() {
     const int32_t screenWidth = 1280;
     const int32_t screenHeight = 720;
 
     InitWindow(screenWidth, screenHeight, "First Raylib Game");
 
-    Vector2 playerPos = { (float)screenWidth / 3.0f , (float)screenHeight * (2.0f / 3.0f) };
-    Vector2 playerMovement = { 0.0f, 0.0f };
-    float playerSpeed = 4.0f;
+    const float gravity = 0.5f;
+    const float playerSpeed = 4.0f;
+    const float playerJumpVelocity = 10.0f;
+    Vector2 playerPos = { (float)screenWidth / 3.0f, (float)screenHeight / 3.0f };
+    Vector2 playerVelocity = { 0.0f, 0.0f };
+    float playerDirection = 0.0f;
 
     SetTargetFPS(60);
 
     while (!WindowShouldClose()) {
-        // Get Input
-        
-        playerMovement.x = -IsKeyDown(KEY_LEFT) + IsKeyDown(KEY_RIGHT);
-        playerMovement.y = -IsKeyDown(KEY_UP) + IsKeyDown(KEY_DOWN);
+        playerDirection = -IsKeyDown(KEY_LEFT) + IsKeyDown(KEY_RIGHT);
+        playerVelocity.x = playerDirection * playerSpeed;
 
-        playerPos.x += playerMovement.x * playerSpeed;
-        playerPos.y += playerMovement.y * playerSpeed;
+        if (IsKeyPressed(KEY_SPACE)) playerVelocity.y = -playerJumpVelocity;
 
-        // vvv
+        playerVelocity.y += gravity;
+
+        playerPos.x += playerVelocity.x;
+        playerPos.y += playerVelocity.y;
+
         BeginDrawing();
         
             ClearBackground(RAYWHITE);

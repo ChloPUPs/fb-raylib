@@ -30,6 +30,7 @@ int main() {
     while (!WindowShouldClose()) {
         switch (currentGameState) {
             case GAMEPLAY: Player_gameplayState(&player);
+            case DEATH:
         }
 
         BeginDrawing();

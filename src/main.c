@@ -25,9 +25,13 @@ int main() {
 
     SetTargetFPS(60);
 
+    enum PlayerState currentGameState = GAMEPLAY;
+
     while (!WindowShouldClose()) {
-        Player_handleInput(&player);
-        Player_applyVelocity(&player);
+        switch (currentGameState) {
+            case GAMEPLAY:
+                Player_gameplayState(&player);
+        }
 
         BeginDrawing();
             ClearBackground(RAYWHITE);

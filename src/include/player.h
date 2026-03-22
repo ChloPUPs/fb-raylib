@@ -9,6 +9,12 @@ typedef struct {
     float direction;
 } Player;
 
+enum PlayerState {
+    GAMEPLAY,
+    DEATH,
+};
+
 void Player_handleInput(Player* player);
 void Player_applyVelocity(Player* player);
 void Player_draw(Player* player);
+void Player_gameplayState(Player* player);

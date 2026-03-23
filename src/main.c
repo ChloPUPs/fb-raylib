@@ -13,6 +13,7 @@ int main() {
     const int32_t screenHeight = 720;
 
     InitWindow(screenWidth, screenHeight, "First Raylib Game");
+    SetExitKey(KEY_NULL);
 
     Player player = {
         .gravity = 0.5f,

@@ -17,7 +17,7 @@ void Player_applyVelocity(Player* player) {
 }
 
 void Player_draw(Player* player) {
-    DrawCircleV(player->pos, 20, RED);
+    DrawCircleV(player->pos, player->drawSize, RED);
 }
 
 void Player_gameplayState(Player* player) {

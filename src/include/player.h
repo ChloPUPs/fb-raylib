@@ -7,6 +7,8 @@ typedef struct {
     Vector2 pos;
     Vector2 velocity;
     float direction;
+    float drawSize;
+    float hBoxSize;
 } Player;
 
 enum PlayerState {

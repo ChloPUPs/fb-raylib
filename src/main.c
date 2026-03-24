@@ -25,6 +25,8 @@ int main() {
         .pos = (Vector2) { (float)screenWidth / 3.0f, (float)screenHeight / 3.0f },
         .velocity = (Vector2) { 0.0f, 0.0f },
         .direction = 0.0f,
+        .drawSize = 20.0f,
+        .hBoxSize = 15.0f,
     };
 
     Pipe testPipe = {

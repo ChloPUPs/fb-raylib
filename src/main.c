@@ -8,6 +8,7 @@
 
 // Flappy Bird where the pipes come to you and you can move around and avoid them?
 // countdown to fall
+// Are pipes on conveyor belt???
 
 int main() {
     const int32_t screenWidth = 1280;
@@ -26,10 +27,11 @@ int main() {
         .direction = 0.0f,
     };
 
-    Pipe pipe = {
+    Pipe testPipe = {
         .pos = (Vector2) { .x = (float)screenWidth, .y = (float)screenHeight / 2.0f},
-        .width = 20.0f,
+        .width = 60.0f,
         .speed = 5.0f,
+        .gapSize = 160.0f,
     };
 
     SetTargetFPS(60);
@@ -37,6 +39,8 @@ int main() {
     enum PlayerState currentGameState = P_GAMEPLAY;
 
     while (!WindowShouldClose()) {
+        Pipe_move(&testPipe);
+
         switch (currentGameState) {
             case P_GAMEPLAY: Player_gameplayState(&player);
             case P_DEATH:
@@ -45,6 +49,7 @@ int main() {
         BeginDrawing();
             ClearBackground(RAYWHITE);
 
+            Pipe_draw(&testPipe, screenHeight * 3);
             if (currentGameState == P_GAMEPLAY) Player_draw(&player);
         EndDrawing();
     }

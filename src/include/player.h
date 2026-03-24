@@ -10,8 +10,8 @@ typedef struct {
 } Player;
 
 enum PlayerState {
-    GAMEPLAY,
-    DEATH,
+    P_GAMEPLAY,
+    P_DEATH,
 };
 
 void Player_handleInput(Player* player);

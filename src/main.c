@@ -19,25 +19,25 @@ int main() {
         .gravity = 0.5f,
         .speed = 4.0f,
         .jumpVelocity = 10.0f,
-        .pos = { (float)screenWidth / 3.0f, (float)screenHeight / 3.0f },
-        .velocity = { 0.0f, 0.0f },
+        .pos = (Vector2) { (float)screenWidth / 3.0f, (float)screenHeight / 3.0f },
+        .velocity = (Vector2) { 0.0f, 0.0f },
         .direction = 0.0f,
     };
 
     SetTargetFPS(60);
 
-    enum PlayerState currentGameState = GAMEPLAY;
+    enum PlayerState currentGameState = P_GAMEPLAY;
 
     while (!WindowShouldClose()) {
         switch (currentGameState) {
-            case GAMEPLAY: Player_gameplayState(&player);
-            case DEATH:
+            case P_GAMEPLAY: Player_gameplayState(&player);
+            case P_DEATH:
         }
 
         BeginDrawing();
             ClearBackground(RAYWHITE);
 
-            if (currentGameState == GAMEPLAY) Player_draw(&player);
+            if (currentGameState == P_GAMEPLAY) Player_draw(&player);
         EndDrawing();
     }
 

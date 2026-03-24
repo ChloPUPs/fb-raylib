@@ -11,8 +11,9 @@
 int main() {
     const int32_t screenWidth = 1280;
     const int32_t screenHeight = 720;
+    const char windowName[] = "First Raylib Game";
 
-    InitWindow(screenWidth, screenHeight, "First Raylib Game");
+    InitWindow(screenWidth, screenHeight, windowName);
     SetExitKey(KEY_NULL);
 
     Player player = {

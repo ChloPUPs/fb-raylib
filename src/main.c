@@ -4,6 +4,7 @@
 #include "../include/raylib.h"
 
 #include "./include/player.h"
+#include "./include/pipe.h"
 
 // Flappy Bird where the pipes come to you and you can move around and avoid them?
 // countdown to fall
@@ -23,6 +24,12 @@ int main() {
         .pos = (Vector2) { (float)screenWidth / 3.0f, (float)screenHeight / 3.0f },
         .velocity = (Vector2) { 0.0f, 0.0f },
         .direction = 0.0f,
+    };
+
+    Pipe pipe = {
+        .pos = (Vector2) { .x = (float)screenWidth, .y = (float)screenHeight / 2.0f},
+        .width = 20.0f,
+        .speed = 5.0f,
     };
 
     SetTargetFPS(60);
